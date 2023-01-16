@@ -80,8 +80,8 @@ class Enemy(pygame.sprite.Sprite):
         self.animation_list = animation_list
         self.frame_index = 0
 
-        self.action = 0 
         #0 é andar; 1 é atacar; 2 é morrer
+        self.action = 0 
 
         self.update_time = pygame.get_ticks()
 
