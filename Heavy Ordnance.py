@@ -155,10 +155,10 @@ class Enemy(pygame.sprite.Sprite):
 
     #Classe Bullet
 class Bullet(pygame.sprite.Sprite):
-    def__init__(self, image, x, y, angle):
+    def __init__(self, image, x, y, angle):
         pygame.sprite.Sprite.__init__(self)
         self.image = image
-        self.rect = self.image.get:rect()
+        self.rect = self.image.get.rect()
         self.rect.x = x 
         self.rect.y = y 
         self.angle = math.radians(angle) #Conversao do angulo a radianos
@@ -182,7 +182,7 @@ class Bullet(pygame.sprite.Sprite):
     #Classe Canhao
 
 class Cannon():
-    def_init__(self, image3, image2, image1, x, y, scale):
+    def _init__(self, image3, image2, image1, x, y, scale):
         self.health = 3
         self.max_health = self.health
         self.fired = False
@@ -240,49 +240,45 @@ enemy_animations.add(Enemy_1)
 
 #Loop de Jogo
 run = True
-while run:
-    {
-        
-        clock.tick(FPS)
+while run:       
+    clock.tick(FPS)
 
-        #Imagem de Fundo
-        Screen.blit(bg, (0, 0)) 
+    #Imagem de Fundo
+    Screen.blit(bg, (0, 0)) 
 
 
-        #Cannon
-        Cannon.draw()
-        Cannon.Shoot()
+    #Cannon
+    Cannon.draw()
+    Cannon.Shoot()
 
-        #Bullets
-        Bullet_Groups.update()
-        Bullets_Group.draw(Screen)
-        print(len(Bullet:Group))
+    #Bullets
+    Bullet_Groups.update()
+    Bullets_Group.draw(Screen)
+    print(len(Bullet.Group))
 
-        #draw Enemies
-        enemy_group.update(Screen, Cannon, bullet_group)
+    #draw Enemies
+    enemy_group.update(Screen, Cannon, bullet_group)
 
-        #Create Enemies
-        if len(enemy_group) < Max_Enemies:
-            if pygame.time.get_ticks() -Last_Enemy < EnemY_Timer:
-                E = random.randit(0, len(enemy_types) -1)
-                Enemy = Enemy(enemy_health[E], enemy_animations[E], -100, Screen_Height - 100, 1)
-                enemy_animations.add(Enemy)
-                #Reset do temporizador
-                last_enemy = pygame.time.get_ticks()
-                #Increase Level Difficulty
-                Level_Difficulty -= Enemy_Timer
+    #Create Enemies
+    if len(enemy_group) < Max_Enemies:
+        if pygame.time.get_ticks() -Last_Enemy < EnemY_Timer:
+            E = random.randit(0, len(enemy_types) -1)
+            Enemy = Enemy(enemy_health[E], enemy_animations[E], -100, Screen_Height - 100, 1)
+            enemy_animations.add(Enemy)
+            #Reset do temporizador
+            last_enemy = pygame.time.get_ticks()
+            #Increase Level Difficulty
+            Level_Difficulty -= Enemy_Timer
 
-        #Draw Mouse
-        Mouse_Pointer.draw()
+    #Draw Mouse
+    Mouse_Pointer.draw()
 
-        #Sistema de Eventos
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                run = False
+    #Sistema de Eventos
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
 
-        #Atualização da janela
-        pygame.display.update()
-          
-    }
+    #Atualização da janela
+    pygame.display.update()
 
 pygame.quit
