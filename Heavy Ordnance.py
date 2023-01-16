@@ -5,7 +5,7 @@ import random
 pygame.init()
 
 #Tamanho do Ecrã
-Screen_Widht = 1000
+Screen_Width = 1000
 Screen_Height = 380
 
 Screen = pygame.display.set_mode((Screen_Width, Screen_Height))
